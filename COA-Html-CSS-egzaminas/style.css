@@ -5,13 +5,13 @@ html {
 }
 
 html {
-    --main-color: #645cff;
+    --blue-color: #645cff;
     --hover-color: grey;
     --error-color: #8b2e36;
     --wh-color: white;
     --pink-color: #FF3998;
     --grey-color: #999999;
-    --nft-color: #eeeeee;
+    --grey2-color: #eeeeee;
     --darkgrey-color: #555555;
     --bl-color: black;
     --orange-color: #FF8139;
@@ -39,7 +39,7 @@ nav a {
     justify-content: space-between;
     background-color: var(--wh-color);
     height: 50px;
-    padding: 30px;
+    padding: 30px 80px;
 }
 
 .menu {
@@ -107,7 +107,11 @@ nav a {
 
 main.wrapper {
     box-sizing: border-box;
-    padding: 0 30px;
+    padding: 0 80px;
+}
+
+.container {
+    margin-top: 60px;
 }
 
 main section.hero {
@@ -187,8 +191,9 @@ h2 {
 }
 
 main section.press {
-    margin: 60px 0;
     display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
     justify-content: space-between;
 
 }
@@ -249,7 +254,7 @@ div.photo-bottom-container {
     grid-template-columns: auto auto;
     margin-top: -10px;
     padding: 10px;
-    background-color: var(--nft-color);
+    background-color: var(--grey2-color);
     border-radius: 0 0 15px 15px;
 }
 
@@ -296,6 +301,28 @@ div.right-side img {
     margin-right: 10px;
 }
 
+
+div.divider {
+    border-top: 2px solid var(--grey2-color);
+}
+
+ul {
+    list-style-type: none;
+}
+
+
+.social a {
+    margin-right: 10px;
+    color: var(--grey-color);
+}
+
+.social a:hover {
+    color: var(--blue-color);
+}
+
+.social {
+    display: flex;
+}
 
 @media (max-width: 700px) {
     .menu-button-container {
