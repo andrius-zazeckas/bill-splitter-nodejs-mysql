@@ -16,6 +16,8 @@ const getCars = async () => {
     const response = await fetch(ENDPOINT);
     const cars = await response.json();
 
+    cars.sort((a, b) => (a.brand > b.brand ? 1 : -1));
+
     return cars;
   } catch (error) {
     console.error(error);
