@@ -11,4 +11,43 @@ Pastaba: Sukurta kortelė, kurioje yra pateikiama vartotojo informacija, turi
 turėti bent minimalų stilių ir būti responsive;
 -------------------------------------------------------------------------- */
 
-const ENDPOINT = 'https://api.github.com/users';
+const ENDPOINT = "https://api.github.com/users";
+
+const getUsers = async () => {
+  try {
+    const response = await fetch(ENDPOINT);
+    const users = await response.json();
+
+    return users;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const createUserCard = (user) => {
+  const userContainer = document.createElement("div");
+  userContainer.setAttribute("class", "userContainer");
+
+  const userImgElement = document.createElement("img");
+
+  const userLoginNameElement = document.createElement("p");
+  userLoginNameElement.setAttribute("class", "userLoginName");
+
+  userImgElement.src = user.avatar_url;
+  userImgElement.setAttribute("alt", "UserPicture");
+
+  userLoginNameElement.innerText = user.login;
+
+  userContainer.append(userImgElement, userLoginNameElement);
+
+  document.querySelector("#output").append(userContainer);
+};
+
+const renderUserCard = async () => {
+  document.querySelector("#output").replaceChildren();
+  const users = await getUsers();
+
+  users.forEach((user) => createUserCard(user));
+};
+
+document.querySelector("#btn").addEventListener("click", renderUserCard);
