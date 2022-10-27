@@ -29,13 +29,11 @@ const createUserCard = (user) => {
   userContainer.setAttribute("class", "userContainer");
 
   const userImgElement = document.createElement("img");
+  userImgElement.setAttribute("alt", "UserPicture");
+  userImgElement.src = user.avatar_url;
 
   const userLoginNameElement = document.createElement("p");
   userLoginNameElement.setAttribute("class", "userLoginName");
-
-  userImgElement.src = user.avatar_url;
-  userImgElement.setAttribute("alt", "UserPicture");
-
   userLoginNameElement.innerText = user.login;
 
   userContainer.append(userImgElement, userLoginNameElement);
