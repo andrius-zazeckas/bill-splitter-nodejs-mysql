@@ -25,14 +25,17 @@ const getCars = async () => {
 };
 
 const createCarBrandCard = (car) => {
-  const carBrandContainer = document.createElement("div");
-  carBrandContainer.setAttribute("class", "carBrandContainer");
+  const carsContainer = document.createElement("div");
+  carsContainer.setAttribute("class", "carsContainer");
 
   const carBrandElement = document.createElement("h2");
   carBrandElement.setAttribute("class", "carBrand");
   carBrandElement.innerText = car.brand;
 
-  carBrandContainer.append(carBrandElement);
+  carsContainer.append(carBrandElement);
+
+  const carModelsContainer = document.createElement("div");
+  carModelsContainer.setAttribute("class", "carModelsContainer");
 
   const models = car.models.sort((a, b) => a.localeCompare(b));
 
@@ -41,10 +44,12 @@ const createCarBrandCard = (car) => {
     carModelsElement.setAttribute("class", "carModels");
 
     carModelsElement.innerText = model;
-    carBrandContainer.append(carModelsElement);
+    carModelsContainer.append(carModelsElement);
   });
 
-  document.querySelector("#output").append(carBrandContainer);
+  carsContainer.append(carModelsContainer);
+
+  document.querySelector("#output").append(carsContainer);
 };
 
 const renderCarBrandCard = async () => {
