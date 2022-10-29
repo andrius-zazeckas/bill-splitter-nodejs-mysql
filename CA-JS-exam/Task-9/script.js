@@ -28,6 +28,6 @@ class Movie {
   }
 }
 
-const movie = new Movie("The Matrix", "Wasowski", 100_000_000);
+const movie = new Movie("The Matrix", "The Wachowskis", 100_000_000);
 
 console.log(movie.wasExpensive());
