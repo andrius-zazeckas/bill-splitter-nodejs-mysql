@@ -10,6 +10,9 @@ Pastaba: atvaizdavimas turi būti matomas pateikus formą ir pateikiamas
 ------------------------------------------------------------------- */
 
 const form = document.querySelector("form");
+const poundsElement = document.createElement("p");
+const gramsElement = document.createElement("p");
+const ozElement = document.createElement("p");
 
 const weightConverter = (event) => {
   event.preventDefault();
@@ -21,14 +24,10 @@ const weightConverter = (event) => {
   const calculateWeightInGrams = userInputValue / 0.001;
   const calculateWeightInOz = userInputValue * 35.274;
 
-  const poundsElement = document.createElement("p");
-  const gramsElement = document.createElement("p");
-  const ozElement = document.createElement("p");
-
   if (userInputValue) {
-    poundsElement.textContent = `Your weight in Pounds is: ${calculateWeightInPounds}`;
-    gramsElement.textContent = `Your weight in Grams is: ${calculateWeightInGrams}`;
-    ozElement.textContent = `Your weight in Oz is: ${calculateWeightInOz}`;
+    poundsElement.textContent = `Your weight in Pounds is: ${calculateWeightInPounds} lb`;
+    gramsElement.textContent = `Your weight in Grams is: ${calculateWeightInGrams} g`;
+    ozElement.textContent = `Your weight in Oz is: ${calculateWeightInOz} oz`;
 
     output.append(poundsElement, gramsElement, ozElement);
   } else {
