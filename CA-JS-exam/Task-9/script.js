@@ -23,7 +23,7 @@ class Movie {
     if (this.budget >= expensiveBudget) {
       return true;
     } else {
-      return;
+      return false;
     }
   }
 }
