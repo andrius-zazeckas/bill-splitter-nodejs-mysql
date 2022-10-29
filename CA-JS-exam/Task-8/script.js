@@ -10,22 +10,34 @@ function Calculator(a, b) {
   this.a = a;
   this.b = b;
   this.sum = function () {
-    return +(this.a + this.b);
+    return this.a + this.b;
   };
   this.subtraction = function () {
-    return +(this.a - this.b);
+    return this.a - this.b;
   };
   this.multiplication = function () {
-    return +(this.a * this.b);
+    return this.a * this.b;
   };
   this.division = function () {
-    return +(this.a / this.b);
+    return this.a / this.b;
   };
 }
 
 const calculate = new Calculator(5, 6);
 
-console.log(calculate.sum());
-console.log(calculate.subtraction());
-console.log(calculate.multiplication());
-console.log(calculate.division());
+console.log(
+  `This is a sum of ${JSON.stringify(calculate)}: ${calculate.sum()}`
+);
+console.log(
+  `This is a subtraction of ${JSON.stringify(
+    calculate
+  )}: ${calculate.subtraction()}`
+);
+console.log(
+  `This is a multiplication of ${JSON.stringify(
+    calculate
+  )}: ${calculate.multiplication()}`
+);
+console.log(
+  `This is a division of ${JSON.stringify(calculate)}: ${calculate.division()}`
+);
