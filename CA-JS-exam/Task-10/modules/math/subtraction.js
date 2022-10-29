@@ -1,3 +1,5 @@
-function substraction(a, b) {
+function subtraction(a, b) {
   return a - b;
 }
+
+export { subtraction };
