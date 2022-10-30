@@ -27,15 +27,15 @@ const getUserAverageAge = () => {
     }, 0) / users.length
   );
 
-  console.log(`Users average age is: ${averageAge}`);
+  return averageAge;
 };
 
 const getUsersNames = () => {
   const usersNames = users.map((user) => user.name);
 
-  console.log(usersNames);
+  return usersNames;
 };
 
-getUserAverageAge();
+console.log(`Users average age is: ${getUserAverageAge()}`);
 
-getUsersNames();
+console.log(getUsersNames());
