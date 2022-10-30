@@ -11,6 +11,10 @@ const audi = {
   color: "white",
 };
 
-const firstPostParams = Object.keys(audi);
+const showObjectKeys = () => {
+  const key = Object.keys(audi);
 
-console.log(firstPostParams);
+  console.log(key);
+};
+
+showObjectKeys();
