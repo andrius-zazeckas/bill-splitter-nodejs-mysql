@@ -21,13 +21,13 @@ const users = [
 ];
 
 const getUserAverageAge = () => {
-  const averageAge = Math.round(
+  const usersAverageAge = Math.round(
     users.reduce((a, b) => {
       return a + b.age;
     }, 0) / users.length
   );
 
-  return averageAge;
+  return usersAverageAge;
 };
 
 const getUsersNames = () => {
