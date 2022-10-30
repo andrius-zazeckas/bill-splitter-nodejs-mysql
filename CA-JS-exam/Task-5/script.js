@@ -23,15 +23,15 @@ const users = [
 const filterDogOwners = () => {
   const dogOwners = users.filter((user) => user.hasDog);
 
-  console.log(dogOwners);
+  return dogOwners;
 };
 
 const filterAdults = () => {
   const adults = users.filter((adult) => adult.age >= 18);
 
-  console.log(adults);
+  return adults;
 };
 
-filterDogOwners();
+console.log(filterDogOwners());
 
-filterAdults();
+console.log(filterAdults());
