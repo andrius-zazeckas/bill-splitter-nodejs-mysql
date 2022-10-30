@@ -1,0 +1,84 @@
+/* Resets */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+/* Mobile first */
+.wrapper {
+  min-height: 100vh;
+  min-width: calc(100vw - (100vw - 100%));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container h1 {
+  margin-top: 50px;
+  color: #333;
+  font-size: 50px;
+}
+
+.wrapper #output {
+  margin: 50px 0;
+  max-width: 85%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: space-around;
+}
+
+#output .carsContainer {
+  width: 450px;
+  box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.48);
+  padding: 5px;
+  border-radius: 7px;
+  background-color: rgb(240, 240, 240);
+}
+
+#output .carBrand {
+  text-align: center;
+  color: rgb(97, 40, 40);
+  margin: 10px;
+  font-size: 35px;
+}
+
+#output .carModel {
+  margin: 5px;
+  padding: 5px;
+  font-weight: 300;
+  font-size: 28px;
+}
+
+#output .carModelsContainer p:nth-child(even) {
+  background-color: rgba(210, 224, 226, 0.574);
+  border-radius: 7px;
+}
+
+@media screen and (min-width: 768px) {
+  .container h1 {
+    font-size: 40px;
+  }
+
+  #output .carsContainer {
+    width: 300px;
+  }
+
+  #output .carBrand {
+    font-size: 30px;
+  }
+
+  #output .carModel {
+    font-size: 18px;
+  }
+}
