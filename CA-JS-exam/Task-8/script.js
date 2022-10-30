@@ -26,18 +26,20 @@ function Calculator(a, b) {
 const calculate = new Calculator(5, 6);
 
 console.log(
-  `This is a sum of ${JSON.stringify(calculate)}: ${calculate.sum()}`
+  `This is a sum of ${calculate.a} and ${calculate.b}: ${calculate.sum()}`
 );
 console.log(
-  `This is a subtraction of ${JSON.stringify(
-    calculate
-  )}: ${calculate.subtraction()}`
+  `This is a subtraction of ${calculate.a} and ${
+    calculate.b
+  }: ${calculate.subtraction()}`
 );
 console.log(
-  `This is a multiplication of ${JSON.stringify(
-    calculate
-  )}: ${calculate.multiplication()}`
+  `This is a multiplication of ${calculate.a} and ${
+    calculate.b
+  }: ${calculate.multiplication()}`
 );
 console.log(
-  `This is a division of ${JSON.stringify(calculate)}: ${calculate.division()}`
+  `This is a division of ${calculate.a} and ${
+    calculate.b
+  }: ${calculate.division()}`
 );
