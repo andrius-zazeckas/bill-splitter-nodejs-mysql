@@ -16,7 +16,7 @@ const getCars = async () => {
     const response = await fetch(ENDPOINT);
     const cars = await response.json();
 
-    cars.sort((a, b) => (a.brand > b.brand ? 1 : -1));
+    cars;
 
     return cars;
   } catch (error) {
@@ -40,11 +40,11 @@ const createCarBrandCard = (car) => {
   const models = car.models.sort((a, b) => a.localeCompare(b));
 
   models.forEach((model) => {
-    const carModelsElement = document.createElement("p");
-    carModelsElement.setAttribute("class", "carModels");
+    const carModelElement = document.createElement("p");
+    carModelElement.setAttribute("class", "carModel");
 
-    carModelsElement.innerText = model;
-    carModelsContainer.append(carModelsElement);
+    carModelElement.innerText = model;
+    carModelsContainer.append(carModelElement);
   });
 
   carsContainer.append(carModelsContainer);
@@ -56,7 +56,9 @@ const renderCarBrandCard = async () => {
   document.querySelector("#output").replaceChildren();
   const cars = await getCars();
 
-  cars.forEach((car) => createCarBrandCard(car));
+  const sortedCars = cars.sort((a, b) => (a.brand > b.brand ? 1 : -1));
+
+  sortedCars.forEach((car) => createCarBrandCard(car));
 };
 
 await renderCarBrandCard();
