@@ -16,8 +16,6 @@ const getCars = async () => {
     const response = await fetch(ENDPOINT);
     const cars = await response.json();
 
-    cars;
-
     return cars;
   } catch (error) {
     console.error(error);
@@ -53,10 +51,10 @@ const createCarBrandCard = (car) => {
 };
 
 const renderCarBrandCard = async () => {
-  document.querySelector("#output").replaceChildren();
   const cars = await getCars();
-
   const sortedCars = cars.sort((a, b) => (a.brand > b.brand ? 1 : -1));
+
+  document.querySelector("#output").replaceChildren();
 
   sortedCars.forEach((car) => createCarBrandCard(car));
 };

@@ -11,10 +11,10 @@ const audi = {
   color: "white",
 };
 
-const showObjectKeys = () => {
-  const key = Object.keys(audi);
+const getObjectKeys = () => {
+  const keys = Object.keys(audi);
 
-  return key;
+  return keys;
 };
 
-console.log(showObjectKeys());
+console.log(getObjectKeys());
