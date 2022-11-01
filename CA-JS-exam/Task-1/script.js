@@ -20,14 +20,14 @@ const weightConverter = (event) => {
   const userInputValue = +document.querySelector("#search").value;
   const output = document.querySelector("#output");
 
-  const calculateWeightInPounds = userInputValue * 2.2046;
-  const calculateWeightInGrams = userInputValue / 0.001;
-  const calculateWeightInOz = userInputValue * 35.274;
+  const weightInPounds = userInputValue * 2.2046;
+  const weightInGrams = userInputValue / 0.001;
+  const weightInOz = userInputValue * 35.274;
 
-  if (userInputValue) {
-    poundsElement.textContent = `Your weight in Pounds is: ${calculateWeightInPounds} lb`;
-    gramsElement.textContent = `Your weight in Grams is: ${calculateWeightInGrams} g`;
-    ozElement.textContent = `Your weight in Oz is: ${calculateWeightInOz} oz`;
+  if (!Number.isNaN(userInputValue)) {
+    poundsElement.textContent = `Your weight in Pounds is: ${weightInPounds} lb`;
+    gramsElement.textContent = `Your weight in Grams is: ${weightInGrams} g`;
+    ozElement.textContent = `Your weight in Oz is: ${weightInOz} oz`;
 
     output.append(poundsElement, gramsElement, ozElement);
   } else {

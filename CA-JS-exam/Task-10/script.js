@@ -8,10 +8,10 @@ import { one, two, three, four, five } from "./modules/numbers/numbers.js";
 Sutvarkykite užduoties "Task 10" esančius failus taip, kad veiktų žemiau pateiktos funkcijos.
 -------------------------------------------------------------------------------------------- */
 
-let a = composition(one, four);
-let b = division(four, two);
-let c = subtraction(three, two);
-let d = multiplication(five, two);
+const a = composition(one, four);
+const b = division(four, two);
+const c = subtraction(three, two);
+const d = multiplication(five, two);
 
 console.log(a);
 console.log(b);

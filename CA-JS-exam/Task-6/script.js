@@ -21,11 +21,10 @@ const users = [
 ];
 
 const getUserAverageAge = () => {
-  const usersAverageAge = Math.round(
-    users.reduce((a, b) => {
-      return a + b.age;
-    }, 0) / users.length
-  );
+  const usersAgeSum = users.reduce((a, b) => {
+    return a + b.age;
+  }, 0);
+  const usersAverageAge = Math.round(usersAgeSum / users.length);
 
   return usersAverageAge;
 };

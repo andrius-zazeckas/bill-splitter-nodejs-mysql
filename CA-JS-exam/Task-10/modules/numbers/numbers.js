@@ -1,7 +1,7 @@
-let one = 1;
-let two = 2;
-let three = 3;
-let four = 4;
-let five = 5;
+const one = 1;
+const two = 2;
+const three = 3;
+const four = 4;
+const five = 5;
 
 export { one, two, three, four, five };

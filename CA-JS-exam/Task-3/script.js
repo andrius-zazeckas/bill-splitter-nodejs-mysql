@@ -42,8 +42,9 @@ const createUserCard = (user) => {
 };
 
 const renderUserCard = async () => {
-  document.querySelector("#output").replaceChildren();
   const users = await getUsers();
+
+  document.querySelector("#output").replaceChildren();
 
   users.forEach((user) => createUserCard(user));
 };
