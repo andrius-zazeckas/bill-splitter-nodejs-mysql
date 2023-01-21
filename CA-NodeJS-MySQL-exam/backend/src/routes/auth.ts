@@ -6,28 +6,33 @@ import { jwtSecret } from "../config";
 import jwt from "jsonwebtoken";
 import { Router } from "express";
 
-const userSchema = Joi.object({
+const newUserSchema = Joi.object({
   full_name: Joi.string().trim().required(),
   email: Joi.string().email().trim().lowercase().required(),
   password: Joi.string().required(),
 });
 
+const userSchema = Joi.object({
+  email: Joi.string().email().trim().lowercase().required(),
+  password: Joi.string().required(),
+});
+
 const registerUser = async (req, res) => {
-  let userData = req.body;
+  let newUserData = req.body;
   try {
-    userData = await userSchema.validateAsync(userData);
+    newUserData = await newUserSchema.validateAsync(newUserData);
   } catch (error) {
     return res.status(400).send({ error: error.message }).end();
   }
 
   try {
-    const hashedPassword = bcrypt.hashSync(userData.password);
+    const hashedPassword = bcrypt.hashSync(newUserData.password);
 
     const con = await mysql.createConnection(MYSQL_CONFIG);
     await con.execute(
       `INSERT INTO users (full_name, email, password) VALUES (${mysql.escape(
-        userData.full_name
-      )},${mysql.escape(userData.email)}, '${hashedPassword}')`
+        newUserData.full_name
+      )},${mysql.escape(newUserData.email)}, '${hashedPassword}')`
     );
 
     await con.end();

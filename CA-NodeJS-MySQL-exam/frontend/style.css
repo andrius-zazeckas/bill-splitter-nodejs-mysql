@@ -1,0 +1,119 @@
+html {
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+  scroll-behavior: smooth;
+}
+
+h1 {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+h2 {
+  font-weight: 400;
+  margin: 0;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.wrapper {
+  width: 80%;
+  margin: 0 auto;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+}
+
+#logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#logo > img {
+  height: 100px;
+}
+
+#logo > p {
+  font-size: 18px;
+}
+
+#content {
+  margin: 40px 0;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  justify-content: center;
+  gap: 40px;
+}
+
+.contentContainer {
+  text-align: center;
+  border-radius: 5px;
+  border: 1px solid #f2f2f2;
+  padding: 20px 0;
+  width: 300px;
+}
+
+.prescriptions-container,
+.log-container {
+  display: block;
+  text-align: center;
+  border-radius: 5px;
+  border: 1px solid #f2f2f2;
+  padding: 20px 0;
+  width: 300px;
+}
+
+button {
+  padding: 10px 30px;
+  border-radius: 4px;
+  font-size: 12px;
+  margin: 30px 0;
+  font-size: 14px;
+  background-color: transparent;
+  border: 1px solid #a7a7a7;
+  border-radius: 5px;
+  box-shadow: 0px 2px 3px 0px rgba(179, 179, 179, 0.23);
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+#login-form,
+#register-form {
+  margin: 0 auto;
+  width: 50%;
+  text-align: left;
+}
+
+#login-form label,
+#register-form label {
+  display: inline-block;
+  width: 140px;
+  margin-top: 30px;
+  font-weight: 400;
+}
+
+#login-form input,
+#register-form input {
+  margin-top: 10px;
+  text-indent: 40px;
+  height: 40px;
+  width: 100%;
+  border: 1px solid #e2e8f0;
+  border-radius: 5px;
+  box-shadow: 0px 2px 3px 0px rgba(179, 179, 179, 0.23);
+}
+
+::placeholder {
+  color: rgb(194, 194, 194);
+}
