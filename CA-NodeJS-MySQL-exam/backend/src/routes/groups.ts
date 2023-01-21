@@ -1,28 +1,10 @@
 import mysql from "mysql2/promise";
 import { MYSQL_CONFIG } from "../config";
-import { jwtSecret } from "../config";
-import jwt from "jsonwebtoken";
 import { Router } from "express";
+import { isLoggedIn } from "../middleware";
 
 const postGroup = async (req, res) => {
-  const token = req.headers.authorization?.split(" ")[1];
-
   const { name } = req.body;
-
-  let payload = null;
-
-  if (!token) {
-    return res.status(401).send({ error: "User unauthorised" }).end();
-  }
-
-  try {
-    payload = jwt.verify(token, jwtSecret);
-  } catch (err) {
-    if (err instanceof jwt.JsonWebTokenError) {
-      return res.status(401).send({ error: "User unauthorised" }).end();
-    }
-    return res.status(400).end();
-  }
 
   const sendBadReqResponse = (message) => {
     res
@@ -76,5 +58,5 @@ const getGroups = async (_, res) => {
 
 export const groups = Router();
 
-groups.post("/groups", postGroup);
-groups.get("/groups", getGroups);
+groups.post("/groups", isLoggedIn, postGroup);
+groups.get("/groups", isLoggedIn, getGroups);
