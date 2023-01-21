@@ -69,9 +69,7 @@ const loginUser = async (req, res) => {
         jwtSecret
       );
 
-      return res
-        .send({ message: "Succesfully logged in", token }) //id: data[0].id,  jei nerasiu id, tai sita reikia naudoti
-        .end();
+      return res.send({ message: "Succesfully logged in", token }).end();
     }
 
     return res.status(400).send({ error: "Incorrect email or password" }).end();
