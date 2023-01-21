@@ -8,6 +8,13 @@ registerForm.addEventListener("submit", async (e) => {
     .value.trim();
   const emailInputValue = document.querySelector("#email-input").value.trim();
   const pswInputValue = document.querySelector("#password-input").value.trim();
+  const repeatPswInputValue = document
+    .querySelector("#repeat-password-input")
+    .value.trim();
+
+  if (pswInputValue != repeatPswInputValue) {
+    return alert("Passwords do not match");
+  }
 
   const user = JSON.stringify({
     full_name: fullNameInputValue,
@@ -19,7 +26,7 @@ registerForm.addEventListener("submit", async (e) => {
     const myHeaders = new Headers();
     myHeaders.append("Content-type", "application/json");
 
-    const response = await fetch("http://localhost:5000/v1/auth/register", {
+    const response = await fetch("http://localhost:5000/register", {
       method: "POST",
       headers: myHeaders,
       body: user,

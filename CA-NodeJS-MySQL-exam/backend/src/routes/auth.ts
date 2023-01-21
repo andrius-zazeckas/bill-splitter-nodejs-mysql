@@ -37,8 +37,14 @@ const registerUser = async (req, res) => {
 
     await con.end();
 
-    return res.status(200).send("User registered successfully").end();
+    return res.status(201).send("User registered successfully").end();
   } catch (error) {
+    if (error.message.includes("Duplicate entry ")) {
+      return res
+        .status(400)
+        .send({ error: `Email ${newUserData.email} Already in use` });
+    }
+
     return res.status(500).send({ error: error.message });
   }
 };
