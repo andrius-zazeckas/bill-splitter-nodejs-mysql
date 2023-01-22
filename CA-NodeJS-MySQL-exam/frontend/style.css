@@ -39,12 +39,20 @@ header {
   align-items: center;
 }
 
-#logo > img {
+#logo > a > img {
   height: 100px;
 }
 
 #logo > p {
   font-size: 18px;
+}
+
+#reference {
+  text-align: center;
+}
+
+#reference > a {
+  margin: 20px;
 }
 
 #groups {
@@ -98,6 +106,7 @@ th {
 
 tr {
   height: 60px;
+  font-size: 14px;
 }
 
 tbody tr:nth-child(even) {
