@@ -4,6 +4,7 @@ import Joi from "joi";
 import { MYSQL_CONFIG } from "../config";
 import { jwtSecret } from "../config";
 import jwt from "jsonwebtoken";
+import { expiresIn } from "../config";
 import { Router } from "express";
 
 const newUserSchema = Joi.object({
@@ -74,11 +75,10 @@ const loginUser = async (req, res) => {
 
     const isAuthed = bcrypt.compareSync(userData.password, data[0].password);
 
+    const userPayload = { id: data[0].id, email: data[0].email };
+
     if (isAuthed) {
-      const token = jwt.sign(
-        { id: data[0].id, email: data[0].email },
-        jwtSecret
-      );
+      const token = jwt.sign(userPayload, jwtSecret, { expiresIn });
 
       return res.send({ message: "Succesfully logged in", token }).end();
     }
