@@ -32,6 +32,23 @@ header {
   margin: 40px 0;
 }
 
+button {
+  padding: 10px 30px;
+  border-radius: 4px;
+  font-size: 12px;
+  margin: 30px 0;
+  font-size: 14px;
+  background-color: transparent;
+  border: 1px solid #a7a7a7;
+  border-radius: 5px;
+  box-shadow: 0px 2px 3px 0px rgba(179, 179, 179, 0.23);
+}
+
+button:hover,
+.content-container:hover {
+  cursor: pointer;
+}
+
 #logo {
   display: flex;
   flex-direction: column;
@@ -77,56 +94,33 @@ header {
   width: 230px;
 }
 
-.content-container:hover {
-  cursor: pointer;
-}
-
 #bills-container {
   width: 100%;
-}
-
-table {
-  border-collapse: collapse;
 }
 
 #bills-table {
   margin-top: 20px;
   margin-bottom: 50px;
   width: 100%;
+  border-collapse: collapse;
 }
 
-td,
-th {
+#bills-table td,
+#bills-table th {
   padding: 5px 20px;
 }
 
-th {
+#bills-table th {
   text-align: left;
 }
 
-tr {
+#bills-table tr {
   height: 60px;
   font-size: 14px;
 }
 
-tbody tr:nth-child(even) {
+#bills-table tr:nth-child(even) {
   background-color: #e5e5e5;
-}
-
-button {
-  padding: 10px 30px;
-  border-radius: 4px;
-  font-size: 12px;
-  margin: 30px 0;
-  font-size: 14px;
-  background-color: transparent;
-  border: 1px solid #a7a7a7;
-  border-radius: 5px;
-  box-shadow: 0px 2px 3px 0px rgba(179, 179, 179, 0.23);
-}
-
-button:hover {
-  cursor: pointer;
 }
 
 #login-form,
