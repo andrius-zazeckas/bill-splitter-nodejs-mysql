@@ -51,4 +51,4 @@ const getGroups = async (_, res) => {
 export const groups = Router();
 
 groups.post("/groups", isLoggedIn, postGroup);
-groups.get("/groups", getGroups);
+groups.get("/groups", isLoggedIn, getGroups);

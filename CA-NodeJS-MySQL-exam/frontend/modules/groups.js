@@ -17,6 +17,7 @@ const renderGroups = async () => {
 
   const textContainer = document.querySelector("#text-container");
   textContainer.replaceChildren();
+  textContainer.style = "margin: 40px";
 
   if (!groups.length) {
     const noDataEl = document.createElement("h2");
@@ -37,7 +38,7 @@ const renderGroups = async () => {
     const { group_id, name } = group;
 
     const contentContainer = document.createElement("div");
-    contentContainer.className = "contentContainer";
+    contentContainer.className = "content-container";
 
     contentContainer.addEventListener("click", () => {
       window.location.assign(`./bills.html?group_id=${group_id}`);

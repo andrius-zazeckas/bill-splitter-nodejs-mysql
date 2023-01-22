@@ -23,7 +23,6 @@ a {
 .wrapper {
   width: 80%;
   margin: 0 auto;
-  border: 1px solid black;
   padding-bottom: 60px;
 }
 
@@ -56,12 +55,13 @@ header {
   gap: 40px;
 }
 
-#text-container {
+#text-container,
+#bills {
   display: flex;
   justify-content: center;
 }
 
-.contentContainer {
+.content-container {
   text-align: center;
   border-radius: 5px;
   border: 1px solid #f2f2f2;
@@ -69,8 +69,39 @@ header {
   width: 230px;
 }
 
-.contentContainer:hover {
+.content-container:hover {
   cursor: pointer;
+}
+
+#bills-container {
+  width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+#bills-table {
+  margin-top: 20px;
+  margin-bottom: 50px;
+  width: 100%;
+}
+
+td,
+th {
+  padding: 5px 20px;
+}
+
+th {
+  text-align: left;
+}
+
+tr {
+  height: 60px;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #e5e5e5;
 }
 
 button {
@@ -91,7 +122,8 @@ button:hover {
 
 #login-form,
 #register-form,
-#add-group-form {
+#add-group-form,
+#add-bill-form {
   margin: 0 auto;
   width: 50%;
   text-align: left;
@@ -99,7 +131,8 @@ button:hover {
 
 #login-form label,
 #register-form label,
-#add-group-form label {
+#add-group-form label,
+#add-bill-form label {
   display: inline-block;
   width: 140px;
   margin-top: 30px;
@@ -109,7 +142,8 @@ button:hover {
 #login-form input,
 #register-form input,
 #add-group-form input,
-#add-group-form select {
+#add-group-form select,
+#add-bill-form input {
   margin-top: 10px;
   text-indent: 40px;
   height: 40px;
