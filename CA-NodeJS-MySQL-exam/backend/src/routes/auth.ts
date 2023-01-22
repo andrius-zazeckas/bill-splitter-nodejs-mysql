@@ -20,6 +20,7 @@ const userSchema = Joi.object({
 
 const registerUser = async (req, res) => {
   let newUserData = req.body;
+
   try {
     newUserData = await newUserSchema.validateAsync(newUserData);
   } catch (error) {
@@ -30,6 +31,7 @@ const registerUser = async (req, res) => {
     const hashedPassword = bcrypt.hashSync(newUserData.password);
 
     const con = await mysql.createConnection(MYSQL_CONFIG);
+
     await con.execute(
       `INSERT INTO users (full_name, email, password) VALUES (${mysql.escape(
         newUserData.full_name
@@ -52,6 +54,7 @@ const registerUser = async (req, res) => {
 
 const loginUser = async (req, res) => {
   let userData = req.body;
+
   try {
     userData = await userSchema.validateAsync(userData);
   } catch (error) {
