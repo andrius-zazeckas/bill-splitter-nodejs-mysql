@@ -3,6 +3,8 @@ const urlParams = new URLSearchParams(queryString);
 const group_id = urlParams.get("group_id");
 
 const addBill = async () => {
+  const billForm = document.querySelector("#add-bill-form");
+
   const amountInputValue = document
     .querySelector("#bill-amount-input")
     .value.trim();
@@ -26,16 +28,18 @@ const addBill = async () => {
       body: newBill,
     });
 
-    const data = await response.json();
+    const billData = await response.json();
 
     if (response.ok) {
-      alert(data.message);
+      billForm.reset();
 
-      window.location.reload();
+      alert(billData.message);
+
+      return window.location.reload();
     }
 
     if (!response.ok || response.status >= 400) {
-      alert(data.error || data.statusText);
+      return alert(billData.error || billData.statusText);
     }
   } catch (error) {
     alert(error.message);

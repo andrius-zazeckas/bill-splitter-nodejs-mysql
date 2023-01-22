@@ -33,9 +33,9 @@ const postBill = async (req, res) => {
     await con.end();
 
     res.status(200).send({ message: `Bill added succesfully` });
-  } catch (err) {
-    res.status(500).send(err).end();
-    return console.error(err);
+  } catch (error) {
+    res.status(500).send(error).end();
+    return console.error(error);
   }
 };
 

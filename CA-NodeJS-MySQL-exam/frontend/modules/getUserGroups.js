@@ -4,13 +4,19 @@ const getUserGroups = async () => {
       headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
     });
 
-    const content = await response.json();
+    const userGroups = await response.json();
 
     if (!response.ok || response.status >= 400) {
-      return alert(content.error || content.statusText);
+      if (userGroups.error === "User unauthorised") {
+        alert(userGroups.error);
+
+        return window.location.assign(`./login.html`);
+      }
+
+      return alert(userGroups.error || userGroups.statusText);
     }
 
-    return content;
+    return userGroups;
   } catch (error) {
     alert(error.message);
   }

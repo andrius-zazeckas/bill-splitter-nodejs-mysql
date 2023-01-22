@@ -45,6 +45,6 @@ registerForm.addEventListener("submit", async (e) => {
       alert(data.error);
     }
   } catch (error) {
-    console.log(error);
+    alert(error.message);
   }
 });

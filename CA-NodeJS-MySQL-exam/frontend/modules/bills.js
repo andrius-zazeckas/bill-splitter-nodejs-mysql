@@ -20,7 +20,7 @@ const renderBills = async () => {
 
   if (!bills.length) {
     const noDataEl = document.createElement("h2");
-    noDataEl.textContent = "There is no bills assigned to this group";
+    noDataEl.textContent = "There are no bills assigned to this group";
 
     return textContainer.append(noDataEl);
   }

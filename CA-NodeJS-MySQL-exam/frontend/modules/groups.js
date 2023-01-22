@@ -1,5 +1,6 @@
 import { addGroup } from "./addGroup.js";
 import { getUserGroups } from "./getUserGroups.js";
+import { newGroup } from "./newGroup.js";
 import { renderGroupsNames } from "./renderGroupsNames.js";
 
 const renderGroups = async () => {
@@ -21,7 +22,7 @@ const renderGroups = async () => {
 
   if (!groups.length) {
     const noDataEl = document.createElement("h2");
-    noDataEl.textContent = "There is no groups assigned to you";
+    noDataEl.textContent = "There are no groups assigned to you";
 
     return textContainer.append(noDataEl);
   }
@@ -66,4 +67,12 @@ document.body
     e.preventDefault();
 
     await addGroup();
+  });
+
+document.body
+  .querySelector("#new-group-form")
+  .addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    await newGroup();
   });

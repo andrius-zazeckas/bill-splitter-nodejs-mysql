@@ -21,31 +21,31 @@ const postAccount = async (req, res) => {
   };
 
   if (!user_id) {
-    return sendBadReqResponse("user_id is not provided");
+    return sendBadReqResponse("User ID is not provided");
   }
 
   if (!group_id) {
-    return sendBadReqResponse("Please input name for group!");
+    return sendBadReqResponse("Group ID is not provided");
   }
-
-  const cleanGroupId = +mysql.escape(req.body.group_id);
 
   const cleanUserId = +mysql.escape(user_id);
 
-  if (
-    cleanGroupId < 0 ||
-    Number.isNaN(cleanGroupId) ||
-    typeof cleanGroupId !== "number"
-  ) {
-    return sendBadReqResponse("group_id must be a number");
-  }
+  const cleanGroupId = +mysql.escape(req.body.group_id);
 
   if (
     cleanUserId < 0 ||
     Number.isNaN(cleanUserId) ||
     typeof cleanUserId !== "number"
   ) {
-    return sendBadReqResponse("user_id must be a number");
+    return sendBadReqResponse("User ID must be a number");
+  }
+
+  if (
+    cleanGroupId < 0 ||
+    Number.isNaN(cleanGroupId) ||
+    typeof cleanGroupId !== "number"
+  ) {
+    return sendBadReqResponse("Group ID must be a number");
   }
 
   const userExistsInGroup = `SELECT * FROM accounts WHERE group_id = ${cleanGroupId} AND user_id = ${user_id}`;
@@ -69,9 +69,9 @@ const postAccount = async (req, res) => {
     res
       .status(200)
       .send({ message: `User was added to group ID: ${cleanGroupId}` });
-  } catch (err) {
-    res.status(500).send(err).end();
-    return console.error(err);
+  } catch (error) {
+    res.status(500).send(error).end();
+    return console.error(error);
   }
 };
 

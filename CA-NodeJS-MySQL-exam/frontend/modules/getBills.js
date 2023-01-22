@@ -11,14 +11,20 @@ const getBills = async () => {
     const bills = await response.json();
 
     if (!response.ok || response.status >= 400) {
-      return bills.error;
+      if (bills.error === "User unauthorised") {
+        alert(bills.error);
+
+        return window.location.assign(`./login.html`);
+      }
+
+      return alert(bills.error || bills.statusText);
     }
 
     if (response.ok) {
       return bills;
     }
   } catch (error) {
-    console.log(error);
+    alert(error.message);
   }
 };
 

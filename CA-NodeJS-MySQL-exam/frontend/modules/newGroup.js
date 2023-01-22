@@ -1,12 +1,14 @@
-const addGroup = async () => {
-  const groupInputValue = document.querySelector("#group-input").value.trim();
+const newGroup = async () => {
+  const groupInputValue = document
+    .querySelector("#new-group-input")
+    .value.trim();
 
   const newGroup = JSON.stringify({
-    group_id: +groupInputValue,
+    name: groupInputValue,
   });
 
   try {
-    const response = await fetch("http://localhost:5000/accounts", {
+    const response = await fetch("http://localhost:5000/groups", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -18,10 +20,6 @@ const addGroup = async () => {
     const groupData = await response.json();
 
     if (response.ok) {
-      if (groupData.message.includes("User is already in group")) {
-        return alert(groupData.message);
-      }
-
       alert(groupData.message);
 
       return window.location.reload();
@@ -35,4 +33,4 @@ const addGroup = async () => {
   }
 };
 
-export { addGroup };
+export { newGroup };

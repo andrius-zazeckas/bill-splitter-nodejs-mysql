@@ -80,6 +80,13 @@ button:hover,
   gap: 40px;
 }
 
+#form-container {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  justify-content: center;
+  gap: 40px;
+}
+
 #text-container,
 #bills {
   display: flex;
@@ -126,15 +133,22 @@ button:hover,
 #login-form,
 #register-form,
 #add-group-form,
+#new-group-form,
 #add-bill-form {
   margin: 0 auto;
   width: 50%;
   text-align: left;
 }
 
+#add-group-form,
+#new-group-form {
+  width: 100%;
+}
+
 #login-form label,
 #register-form label,
 #add-group-form label,
+#new-group-form label,
 #add-bill-form label {
   display: inline-block;
   width: 140px;
@@ -146,6 +160,7 @@ button:hover,
 #register-form input,
 #add-group-form input,
 #add-group-form select,
+#new-group-form input,
 #add-bill-form input {
   margin-top: 10px;
   text-indent: 40px;
@@ -178,6 +193,10 @@ button:hover,
   #groups {
     grid-template-columns: repeat(2, auto);
     justify-content: center;
+  }
+
+  #form-container {
+    grid-template-columns: auto;
   }
 }
 

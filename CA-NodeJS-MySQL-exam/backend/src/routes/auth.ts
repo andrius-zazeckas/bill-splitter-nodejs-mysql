@@ -78,7 +78,7 @@ const loginUser = async (req, res) => {
 
     const isAuthed = bcrypt.compareSync(userData.password, data[0].password);
 
-    const userPayload = { id: data[0].id, email: data[0].email };
+    const userPayload = { id: data[0].id };
 
     if (isAuthed) {
       const token = jwt.sign(userPayload, jwtSecret, { expiresIn });

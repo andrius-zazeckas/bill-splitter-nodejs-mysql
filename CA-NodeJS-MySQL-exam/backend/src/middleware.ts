@@ -12,12 +12,12 @@ export const isLoggedIn = (req, res, next) => {
 
   try {
     payload = jwt.verify(token, jwtSecret);
-  } catch (err) {
-    if (err instanceof jwt.JsonWebTokenError) {
+  } catch (error) {
+    if (error instanceof jwt.JsonWebTokenError) {
       return res.status(401).send({ error: "User unauthorised" }).end();
     }
 
-    return res.status(400).send(err).end();
+    return res.status(400).send(error).end();
   }
 
   return next();

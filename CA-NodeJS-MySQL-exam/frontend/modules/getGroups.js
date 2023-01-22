@@ -7,6 +7,12 @@ const getGroups = async () => {
     const groups = await response.json();
 
     if (!response.ok || response.status >= 400) {
+      if (groups.error === "User unauthorised") {
+        alert(groups.error);
+
+        return window.location.assign(`./login.html`);
+      }
+
       return alert(groups.error || groups.statusText);
     }
 

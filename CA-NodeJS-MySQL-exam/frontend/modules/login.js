@@ -28,6 +28,8 @@ loginForm.addEventListener("submit", async (e) => {
 
       localStorage.setItem("token", userData.token);
 
+      alert(userData.message);
+
       return window.location.assign(`./groups.html`);
     }
 
