@@ -58,7 +58,7 @@ const postAccount = async (req, res) => {
 
     if (Array.isArray(isUserInGroup) && isUserInGroup.length) {
       return res.send({
-        message: `User is already in group number: ${cleanGroupId}`,
+        message: `User is already in group ID: ${cleanGroupId}`,
       });
     }
 
@@ -68,7 +68,7 @@ const postAccount = async (req, res) => {
 
     res
       .status(200)
-      .send({ message: `User was added to group number: ${cleanGroupId}` });
+      .send({ message: `User was added to group ID: ${cleanGroupId}` });
   } catch (err) {
     res.status(500).send(err).end();
     return console.error(err);

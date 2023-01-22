@@ -23,6 +23,8 @@ a {
 .wrapper {
   width: 80%;
   margin: 0 auto;
+  border: 1px solid black;
+  padding-bottom: 60px;
 }
 
 header {
@@ -46,12 +48,17 @@ header {
   font-size: 18px;
 }
 
-#content {
+#groups {
   margin: 40px 0;
   display: grid;
-  grid-template-columns: repeat(3, auto);
+  grid-template-columns: repeat(5, auto);
   justify-content: center;
   gap: 40px;
+}
+
+#text-container {
+  display: flex;
+  justify-content: center;
 }
 
 .contentContainer {
@@ -59,17 +66,11 @@ header {
   border-radius: 5px;
   border: 1px solid #f2f2f2;
   padding: 20px 0;
-  width: 300px;
+  width: 230px;
 }
 
-.prescriptions-container,
-.log-container {
-  display: block;
-  text-align: center;
-  border-radius: 5px;
-  border: 1px solid #f2f2f2;
-  padding: 20px 0;
-  width: 300px;
+.contentContainer:hover {
+  cursor: pointer;
 }
 
 button {
@@ -89,14 +90,16 @@ button:hover {
 }
 
 #login-form,
-#register-form {
+#register-form,
+#add-group-form {
   margin: 0 auto;
   width: 50%;
   text-align: left;
 }
 
 #login-form label,
-#register-form label {
+#register-form label,
+#add-group-form label {
   display: inline-block;
   width: 140px;
   margin-top: 30px;
@@ -104,7 +107,9 @@ button:hover {
 }
 
 #login-form input,
-#register-form input {
+#register-form input,
+#add-group-form input,
+#add-group-form select {
   margin-top: 10px;
   text-indent: 40px;
   height: 40px;
@@ -116,4 +121,32 @@ button:hover {
 
 ::placeholder {
   color: rgb(194, 194, 194);
+}
+
+@media screen and (max-width: 1600px) {
+  #groups {
+    grid-template-columns: repeat(4, auto);
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  #groups {
+    grid-template-columns: repeat(3, auto);
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  #groups {
+    grid-template-columns: repeat(2, auto);
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  #groups {
+    grid-template-columns: auto;
+    justify-content: center;
+  }
 }
