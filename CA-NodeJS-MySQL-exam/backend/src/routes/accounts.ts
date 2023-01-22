@@ -1,15 +1,26 @@
 import mysql from "mysql2/promise";
 import jwt from "jsonwebtoken";
+import Joi from "joi";
 import { jwtSecret } from "../config";
 import { MYSQL_CONFIG } from "../config";
 import { Router } from "express";
 import { isLoggedIn } from "../middleware";
 
+const accountSchema = Joi.object({
+  group_id: Joi.number().integer().required(),
+});
+
 const postAccount = async (req, res) => {
   const token = req.headers.authorization?.split(" ")[1];
   const decryptedToken = jwt.verify(token, jwtSecret);
   const user_id = decryptedToken.id;
-  const { group_id } = req.body;
+  let accountData = req.body;
+
+  try {
+    accountData = await accountSchema.validateAsync(accountData);
+  } catch (error) {
+    return res.status(400).send({ error: error.message }).end();
+  }
 
   const sendBadReqResponse = (message) => {
     res
@@ -24,13 +35,7 @@ const postAccount = async (req, res) => {
     return sendBadReqResponse("User ID is not provided");
   }
 
-  if (!group_id) {
-    return sendBadReqResponse("Group ID is not provided");
-  }
-
   const cleanUserId = +mysql.escape(user_id);
-
-  const cleanGroupId = +mysql.escape(req.body.group_id);
 
   if (
     cleanUserId < 0 ||
@@ -40,16 +45,8 @@ const postAccount = async (req, res) => {
     return sendBadReqResponse("User ID must be a number");
   }
 
-  if (
-    cleanGroupId < 0 ||
-    Number.isNaN(cleanGroupId) ||
-    typeof cleanGroupId !== "number"
-  ) {
-    return sendBadReqResponse("Group ID must be a number");
-  }
-
-  const userExistsInGroup = `SELECT * FROM accounts WHERE group_id = ${cleanGroupId} AND user_id = ${user_id}`;
-  const query = `INSERT INTO accounts (group_id, user_id) VALUES ( ${cleanGroupId}, ${cleanUserId})`;
+  const userExistsInGroup = `SELECT * FROM accounts WHERE group_id = ${accountData.group_id} AND user_id = ${user_id}`;
+  const query = `INSERT INTO accounts (group_id, user_id) VALUES ( ${accountData.group_id}, ${cleanUserId})`;
 
   try {
     const con = await mysql.createConnection(MYSQL_CONFIG);
@@ -58,7 +55,7 @@ const postAccount = async (req, res) => {
 
     if (Array.isArray(isUserInGroup) && isUserInGroup.length) {
       return res.send({
-        message: `User is already in group ID: ${cleanGroupId}`,
+        message: `User is already in group ID: ${accountData.group_id}`,
       });
     }
 
@@ -68,7 +65,7 @@ const postAccount = async (req, res) => {
 
     res
       .status(200)
-      .send({ message: `User was added to group ID: ${cleanGroupId}` });
+      .send({ message: `User was added to group ID: ${accountData.group_id}` });
   } catch (error) {
     res.status(500).send(error).end();
     return console.error(error);
