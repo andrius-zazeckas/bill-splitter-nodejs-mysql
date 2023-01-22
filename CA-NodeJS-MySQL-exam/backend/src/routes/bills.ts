@@ -5,13 +5,13 @@ import { Router } from "express";
 import { isLoggedIn } from "../middleware";
 
 const newBillSchema = Joi.object({
-  group_id: Joi.number().required(),
+  group_id: Joi.number().integer().required(),
   amount: Joi.number().required(),
   description: Joi.string().trim().required(),
 });
 
 const billSchema = Joi.object({
-  group_id: Joi.number().required(),
+  group_id: Joi.number().integer().required(),
 });
 
 const postBill = async (req, res) => {
