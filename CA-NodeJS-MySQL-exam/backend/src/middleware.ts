@@ -19,5 +19,6 @@ export const isLoggedIn = (req, res, next) => {
 
     return res.status(400).send(err).end();
   }
+
   return next();
 };
