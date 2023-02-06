@@ -12,7 +12,7 @@ const renderBills = async () => {
     return;
   }
 
-  const currency = "$";
+  const CURRENCY = "$";
 
   const textContainer = document.querySelector("#text-container");
   textContainer.replaceChildren();
@@ -68,7 +68,7 @@ const renderBills = async () => {
 
     idEl.textContent = id;
     descriptionEl.textContent = description;
-    amountEl.textContent = `${currency}${amount}`;
+    amountEl.textContent = `${CURRENCY}${amount}`;
 
     rowEl.append(idEl, descriptionEl, amountEl);
     tbodyEl.append(rowEl);

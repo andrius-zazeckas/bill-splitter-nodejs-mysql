@@ -20,9 +20,7 @@ const getBills = async () => {
       return alert(bills.error || bills.statusText);
     }
 
-    if (response.ok) {
-      return bills;
-    }
+    return bills;
   } catch (error) {
     alert(error.message);
   }

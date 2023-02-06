@@ -33,7 +33,7 @@ loginForm.addEventListener("submit", async (e) => {
       return window.location.assign(`./groups.html`);
     }
 
-    if (!response.ok || response.status >= 400) {
+    if (response.status >= 400) {
       return alert(userData.error || userData.statusText);
     }
   } catch (error) {

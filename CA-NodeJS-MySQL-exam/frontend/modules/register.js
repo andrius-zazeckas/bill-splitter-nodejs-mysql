@@ -40,7 +40,7 @@ registerForm.addEventListener("submit", async (e) => {
       return window.location.assign(`./login.html`);
     }
 
-    if (!response.ok || response.status >= 400) {
+    if (response.status >= 400) {
       const data = await response.json();
       alert(data.error);
     }
